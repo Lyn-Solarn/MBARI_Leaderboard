@@ -10,7 +10,7 @@
           </thead>
           <tbody>
             <tr v-for="row in filtered" :key="row.id">
-              <td>{{ row.ownerInstititutionCode }}</td>
+              <td>{{ row.ownerInstitutionCode }}</td>
               <td>{{ row.boundingBoxes.toLocaleString() }}</td>
               <td>{{ row.images.toLocaleString() }}</td>
               <td>{{ row.uploads.toLocaleString() }}</td>
@@ -25,13 +25,13 @@
 <script setup>
   import { ref, computed } from 'vue'
   // -- TEMPORARY -- REPLACE WHEN API ENDPOINTS ARE IMPLEMENTED --
-  import TEMP from '../TempData.js'
+  import TEMP from '../Data.js'
 
   const query = ref('')
   const sortKey = ref('boundingBoxes') 
 
   const headers = [
-    { label: 'Name', key: 'ownerInstititutionCode', align: 'center' },
+    { label: 'Name', key: 'ownerInstitutionCode', align: 'center' },
     { label: '# of Annotations', key: 'boundingBoxes', align: 'center' },
     { label: '# of Images', key: 'images', align: 'center' },
     { label: '# of Collections', key: 'uploads', align: 'center' }
@@ -42,7 +42,7 @@
 
     let rows = q
       ? TEMP.organizations.filter(r =>
-          r.ownerInstititutionCode.toLowerCase().includes(q) ||
+          r.ownerInstitutionCode.toLowerCase().includes(q) ||
           String(r.rank).includes(q)
         )
       : [...TEMP.organizations]

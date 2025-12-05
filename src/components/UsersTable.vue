@@ -5,13 +5,13 @@
         <v-table striped="odd">
           <thead>
             <tr>
-              <th v-for="h in headers" :key="h.key" @click="setSort(h.key)">{{ h.label }}</th>
+              <th v-for="h in headers" :key="h.key">{{ h.label }}</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="row in filtered" :key="row.id">
               <td>{{ row.name }}</td>
-              <td>{{ row.boundingboxes.toLocaleString() }}</td>
+              <td>{{ row.count.toLocaleString() }}</td>
             </tr>
           </tbody>
         </v-table>
@@ -35,11 +35,11 @@
     const data = (props.mode == 'observer') ? TEMP.observers : TEMP.verifiers;
 
     const query = ref('')
-    const sortKey = ref('boundingboxes') 
+    const sortKey = ref('count') 
 
     const headers = [
     { label: 'Name', key: 'name', align: 'center' },
-    { label: '# of Bounding Boxes', key: 'boundingboxes', align: 'center' },
+    { label: '# of Bounding Boxes', key: 'count', align: 'center' },
     ]
 
     const filtered = computed(() => {
@@ -63,8 +63,4 @@
 
     return rows
     })
-
-    function setSort(key) {
-    sortKey.value = key
-    }
 </script>
