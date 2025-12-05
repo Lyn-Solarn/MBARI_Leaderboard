@@ -10,10 +10,10 @@
           </thead>
           <tbody>
             <tr v-for="row in filtered" :key="row.id">
-              <td>{{ row.name }}</td>
-              <td>{{ row.annotations.toLocaleString() }}</td>
+              <td>{{ row.ownerInstititutionCode }}</td>
+              <td>{{ row.boundingBoxes.toLocaleString() }}</td>
               <td>{{ row.images.toLocaleString() }}</td>
-              <td>{{ row.collections.toLocaleString() }}</td>
+              <td>{{ row.uploads.toLocaleString() }}</td>
             </tr>
           </tbody>
         </v-table>
@@ -28,13 +28,13 @@
   import TEMP from '../TempData.js'
 
   const query = ref('')
-  const sortKey = ref('annotations') 
+  const sortKey = ref('boundingBoxes') 
 
   const headers = [
-    { label: 'Name', key: 'name', align: 'center' },
-    { label: '# of Annotations', key: 'annotations', align: 'center' },
+    { label: 'Name', key: 'ownerInstititutionCode', align: 'center' },
+    { label: '# of Annotations', key: 'boundingBoxes', align: 'center' },
     { label: '# of Images', key: 'images', align: 'center' },
-    { label: '# of Collections', key: 'collections', align: 'center' }
+    { label: '# of Collections', key: 'uploads', align: 'center' }
   ]
 
   const filtered = computed(() => {
@@ -42,7 +42,7 @@
 
     let rows = q
       ? TEMP.organizations.filter(r =>
-          r.name.toLowerCase().includes(q) ||
+          r.ownerInstititutionCode.toLowerCase().includes(q) ||
           String(r.rank).includes(q)
         )
       : [...TEMP.organizations]

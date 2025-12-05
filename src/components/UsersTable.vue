@@ -22,8 +22,8 @@
 
 <script setup>
     import { ref, computed } from 'vue'
-    // -- TEMPORARY -- REPLACE WHEN API ENDPOINTS ARE IMPLEMENTED --
-    import TEMP from '../TempData.js'
+    // -- TEMPORARY -- UPDATE WHEN API ENDPOINTS ARE IMPLEMENTED --
+    import TEMP from '../Data.js'
 
     const props = defineProps({
         mode: {
