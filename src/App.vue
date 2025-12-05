@@ -1,11 +1,5 @@
-<script setup>
-import Table from './components/table.vue'
-</script>
-
 <template>
-  <Table/>
+  <div>
+    <router-view />
+  </div>
 </template>
-
-<style scoped>
-
-</style>
