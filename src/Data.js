@@ -20,7 +20,6 @@ import fathomnetEndpoints from "./api/fathomnetApi.js";
 //             name: o.observer,
 //             count: o.count
 //         })),
-
 //         verifiers: verifiers.map((v, i) => ({
 //             id: i+1,
 //             name: v.verifier,

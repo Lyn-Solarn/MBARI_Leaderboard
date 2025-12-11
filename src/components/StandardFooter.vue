@@ -1,27 +1,27 @@
 <template>
   <footer class="footer">
-    <!-- <img
+    <img
       class="footer__background"
       src="@/assets/images/elizabeth-lies-e1dnFk7_570-unsplash.png"
       width="1"
       height="1"
       alt=""
-      /> -->
+      />
 
-    <!-- <h2 class="footer__logomark">
+    <h2 class="footer__logomark">
       <Logomark label="FathomNet Database" cssClassName="footer__logomark-svg" />
-    </h2> -->
+    </h2>
 
     <section class="footer__nav">
       <h3 class="footer__heading">FathomNet Database</h3>
       <ul class="footer__nav-list footer__nav-list--columns">
         <li class="footer__nav-list-item">
-          <router-link to="#" class="link footer__nav-link">
+          <router-link to="/" class="link footer__nav-link">
             Home
           </router-link>
         </li>
         <li class="footer__nav-list-item">
-          <router-link to="#" class="link footer__nav-link">
+          <router-link to="/explorer" class="link footer__nav-link">
             Explorer
           </router-link>
         </li>
@@ -33,7 +33,7 @@
         </li>
         -->
         <li class="footer__nav-list-item">
-          <router-link to="#" class="link footer__nav-link">
+          <router-link to="/about" class="link footer__nav-link">
             About Us
           </router-link>
         </li>
@@ -143,7 +143,7 @@
     </div>
 
     <p class="footer__mbari">
-      <!-- <img class="footer__mbari-logo" src="@/assets/images/mbari.svg" alt="" /> -->
+      <img class="footer__mbari-logo" src="@/assets/images/mbari.svg" alt="" />
       <span class="footer__mbari-text">FathomNet is part of</span>
       <a href="https://www.mbari.org" class="link link--primary link--medium">MBARI</a>
     </p>
@@ -153,11 +153,7 @@
 
 <script setup>
 import { computed } from 'vue';
-// import Logomark from "@/components/Logomark.vue";
+import Logomark from "@/components/Logomark.vue";
 
 const currentYear = computed(() => new Date().getFullYear());
 </script>
-
-<style lang="scss" scoped>
-  // @import "../assets/styles/base.scss"; 
-</style>

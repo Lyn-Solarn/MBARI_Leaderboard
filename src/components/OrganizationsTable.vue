@@ -47,14 +47,14 @@
         )
       : [...TEMP.organizations]
 
-    rows.sort((rowA, rowB) => {
-      const valA = rowA[sortKey.value]
-      const valB = rowB[sortKey.value]
+    // rows.sort((rowA, rowB) => {
+    //   const valA = rowA[sortKey.value]
+    //   const valB = rowB[sortKey.value]
 
-      if (valA < valB) return 1
-      if (valA > valB) return -1
-      return 0
-    })
+    //   if (valA < valB) return 1
+    //   if (valA > valB) return -1
+    //   return 0
+    // })
 
     return rows
   })
