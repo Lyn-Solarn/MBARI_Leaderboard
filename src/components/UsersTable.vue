@@ -41,8 +41,8 @@ const query = ref('')
 const sortKey = ref('count')
 
 const headers = [
-  { label: 'Name', key: 'name', align: 'center' },
-  { label: '# of Bounding Boxes', key: 'count', align: 'center' },
+  { label: 'Name', key: 'name' },
+  { label: '# of Bounding Boxes', key: 'count' },
 ]
 
 const filtered = computed(() => {
