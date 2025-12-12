@@ -1,3 +1,4 @@
+// Proxy API (More info found in vite.config.js)
 const fathomnetURL = "/fathomnet";
 const mode = "cors";
 const fathomnetEndpoints = {

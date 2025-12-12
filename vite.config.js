@@ -23,6 +23,9 @@ export default defineConfig({
     },
   },
 
+  // Proxy API requests during development:
+  // Any request starting with /fathomnet is forwarded to the FathomNet server.
+  // The "/fathomnet" prefix is removed, helping avoid CORS issues and keeping fetch URLs simple.
   server: {
     proxy: {
       '/fathomnet': {

@@ -4,9 +4,12 @@
     <h1>FathomNet Contributions</h1>
 
     <div>
+      <!-- Can remove <br>. Currently here just for easy readability when testing -->
       <button @click="show('OrganizationsTable')">Organizations</button>
+      <br>
       <button @click="show('ObserversTable', 'observer')">Bounding Box Observers</button>
-      <button @click="show('ObserversTable', 'verifier')">Verifiers</button>
+      <br>
+      <button @click="show('ObserversTable', 'verifier')">Reviewers</button>
     </div>
 
     <component :is="components[currentView]" v-bind="currentProps" :key="currentView + JSON.stringify(currentProps)"/>
@@ -14,11 +17,28 @@
     <!-- Apply the same styling that the "Our Vision" h4 element has (https://www.fathomnet.org/about) -->
     <h4>Who Contributed to FathomNet?</h4>
 
-    <h5>Organizations</h5>
-    <h5>Observers</h5>
-    <h5>Reviewers</h5>
+    <!-- Each of these are collapsable like the "Project Opportunities" section on the MBARI website (https://www.mbari.org/about/careers/internships/) -->
+    <div>
+      <h5>Organizations</h5>
+      <div>
+        [Placeholder Text]
+      </div>
+    </div>
 
-    <StandardFooter/>
+    <div>
+      <h5>Observers</h5>
+      <div>
+        [Placeholder Text]
+      </div>
+    </div>
+
+    <div>
+      <h5>Reviewers</h5>
+      <div>
+        [Placeholder Text]
+      </div>
+    </div>
+    
   </div>
 </template>
 
@@ -26,7 +46,6 @@
 import { ref } from 'vue';
 import OrganizationsTable from '../components/OrganizationsTable.vue';
 import ObserversTable from '../components/UsersTable.vue';
-import StandardFooter from '../components/StandardFooter.vue';
 
 const currentView = ref('OrganizationsTable');
 const currentProps = ref({});
