@@ -21,46 +21,39 @@
 </template>
 
 <script setup>
-    import { ref, computed } from 'vue'
-    // -- TEMPORARY -- UPDATE WHEN API ENDPOINTS ARE IMPLEMENTED --
-    import TEMP from '../Data.js'
+import { ref, computed } from 'vue'
+import fathomnetData from '../Data.js'
 
-    const props = defineProps({
-        mode: {
-            type: String,
-            required: true
-        }
-    });
+const props = defineProps({
+  mode: {
+    type: String,
+    required: true
+  }
+});
 
-    const data = (props.mode == 'observer') ? TEMP.observers : TEMP.verifiers;
+const data = ref(
+  props.mode === "observer"
+    ? fathomnetData.observers
+    : fathomnetData.reviewer
+)
 
-    const query = ref('')
-    const sortKey = ref('count') 
+const query = ref('')
+const sortKey = ref('count')
 
-    const headers = [
-    { label: 'Name', key: 'name', align: 'center' },
-    { label: '# of Bounding Boxes', key: 'count', align: 'center' },
-    ]
+const headers = [
+  { label: 'Name', key: 'name', align: 'center' },
+  { label: '# of Bounding Boxes', key: 'count', align: 'center' },
+]
 
-    const filtered = computed(() => {
-    const q = query.value.trim().toLowerCase()
+const filtered = computed(() => {
+  const q = query.value.trim().toLowerCase()
 
-    let rows = q
-        ? data.filter(r =>
-            r.name.toLowerCase().includes(q) ||
-            String(r.rank).includes(q)
-        )
-        : [...data]
+  let rows = q
+    ? data.value.filter(r => r.name.toLowerCase().includes(q))
+    : [...data.value]
 
-    rows.sort((rowA, rowB) => {
-        const valA = rowA[sortKey.value]
-        const valB = rowB[sortKey.value]
+  rows.sort((a, b) => b[sortKey.value] - a[sortKey.value])
 
-        if (valA < valB) return 1
-        if (valA > valB) return -1
-        return 0
-    })
-
-    return rows
-    })
+  return rows.slice(0,10)
+})
 </script>
