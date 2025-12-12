@@ -1,5 +1,22 @@
-# Vue 3 + Vite
+# MBARI Leaderboard
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Created during Service Learning for MBARI's FathomNet website. Displays the top organizations and users (observers and reviewers) and how much they contributed to the FathomNet database. 
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+As of 12/12/25, the styling is not properly working, but the logic for the leaderboard is in working order with the new API endpoints. 
+
+---
+
+### **Installation**
+
+```bash
+npm install
+```
+
+### Development Server
+```bash
+npm run dev
+```
+Runs at:
+```arduino
+http://localhost:5173
+```
